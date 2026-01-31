@@ -5,7 +5,7 @@ const LRU = require('lru-cache');
 
 const manifestRouter = require('./manifestRouter');
 const swrRouter = require('./swrRouter');
-const oauthRouter = require('./oidc-provider/oauthRouter');
+// const oauthRouter = require('./oidc-provider/oauthRouter');
 const urlRouter = require('./urlRouter');
 
 const { createBundleRenderer } = require('vue-server-renderer');
@@ -39,7 +39,7 @@ app.use('/_manifest', manifestRouter);
 app.use('/_service-worker.js', swrRouter);
 app.use('/hms-messaging-sw.js', swrRouter);
 app.use('/_url', urlRouter);
-app.use('/_oauth', oauthRouter('/_oauth', port));
+// app.use('/_oauth', oauthRouter('/_oauth', port));
 app.use('/_dist', serve('./_dist', true));
 app.use('/', serve('./static', true));
 
